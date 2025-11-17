@@ -7,7 +7,7 @@
       "label": "Component Name",
       "description": "The name of the web component in kebab-case (e.g., 'my-awesome-element').",
       "type": "string",
-      "defaultValue": "my-element"
+      "defaultValue": "nuwa-ui-render"
     }
   ]
 }
