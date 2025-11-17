@@ -1,8 +1,8 @@
 {
-  "name": "{{ .componentName }}",
+  "name": "nuwa-ui-render",
   "version": "1.0.0",
-  "description": "A lightweight web component built with Lit and TypeScript.",
-  "main": "src/{{ .componentName }}.ts",
+  "description": "A lightweight web component for rendering Nuwa Software content.",
+  "main": "src/nuwa-ui-render.ts",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
