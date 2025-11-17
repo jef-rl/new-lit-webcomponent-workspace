@@ -1,8 +1,8 @@
 {
-  "name": "my-lit-component",
+  "name": "{{ .componentName }}",
   "version": "1.0.0",
   "description": "A lightweight web component built with Lit and TypeScript.",
-  "main": "src/my-element.ts",
+  "main": "src/{{ .componentName }}.ts",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

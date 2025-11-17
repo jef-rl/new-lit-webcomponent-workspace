@@ -4,10 +4,10 @@ export default defineConfig({
   build: {
     // 1. Configure the library build
     lib: {
-      entry: 'src/my-element.ts',
-      name: 'MyElement',
+      entry: 'src/{{ .componentName }}.ts',
+      name: '{{ toPascal .componentName }}',
       // 2. Restrict output to a single UMD file
-      fileName: () => `my-element.umd.js`,
+      fileName: () => `{{ .componentName }}.umd.js`,
       formats: ['umd']
     },
     // 3. Explicitly set 'terser' as the minifier

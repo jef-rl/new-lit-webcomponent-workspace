@@ -1,8 +1,8 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
-@customElement('my-element')
-export class MyElement extends LitElement {
+@customElement('{{ .componentName }}')
+export class {{ toPascal .componentName }} extends LitElement {
   static styles = css`
     :host {
       display: block;

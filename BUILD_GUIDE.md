@@ -39,7 +39,7 @@ When this project is opened in a compatible environment like Firebase Studio, th
 
 The project is structured to be simple and focused.
 
--   `src/my-element.ts`: The TypeScript source code for our Lit web component.
+-   `src/{{ .componentName }}.ts`: The TypeScript source code for our Lit web component.
 -   `package.json`: Defines project metadata, scripts, and dependencies.
 -   `tsconfig.json`: Configures the TypeScript compiler.
 -   `vite.config.js`: The build configuration file that instructs Vite how to create our desired output.
@@ -50,10 +50,10 @@ This file defines the `build` script and lists the necessary development depende
 
 ```json
 {
-  "name": "my-lit-component",
+  "name": "{{ .componentName }}",
   "version": "1.0.0",
   "description": "A lightweight web component built with Lit and TypeScript.",
-  "main": "src/my-element.ts",
+  "main": "src/{{ .componentName }}.ts",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -110,10 +110,10 @@ export default defineConfig({
   build: {
     // 1. Configure the library build
     lib: {
-      entry: 'src/my-element.ts',
-      name: 'MyElement',
+      entry: 'src/{{ .componentName }}.ts',
+      name: '{{ toPascal .componentName }}',
       // 2. Restrict output to a single UMD file
-      fileName: () => `my-element.umd.js`,
+      fileName: () => `{{ .componentName }}.umd.js`,
       formats: ['umd']
     },
     // 3. Explicitly set 'terser' as the minifier
@@ -152,17 +152,17 @@ npm run build
 
 This command executes `vite build`. Vite now performs the following actions:
 1.  Reads the `tsconfig.json` file for TypeScript rules.
-2.  Takes `src/my-element.ts` as the entry point and transpiles it to JavaScript.
+2.  Takes `src/{{ .componentName }}.ts` as the entry point and transpiles it to JavaScript.
 3.  Bundles the transpiled code, the Lit library, and other dependencies.
 4.  Transpiles the bundle into the UMD format.
 5.  Minifies the output using Terser and removes all comments.
-6.  Writes the final file to `dist/my-element.umd.js`.
+6.  Writes the final file to `dist/{{ .componentName }}.umd.js`.
 
 ## Part 4: The Final Output
 
 After the build successfully completes, the `dist` directory will contain the final product:
 
--   `dist/my-element.umd.js`
+-   `dist/{{ .componentName }}.umd.js`
 
 This single file is the production-ready, distributable web component. It is self-contained and can be deployed to any web server or CDN.
 
@@ -177,13 +177,13 @@ You can use the component by including the script in any HTML file.
     <meta charset="UTF-8">
     <title>Component Usage Example</title>
     <!-- 1. Include the component's script from its location -->
-    <script src="dist/my-element.umd.js"></script>
+    <script src="dist/{{ .componentName }}.umd.js"></script>
 </head>
 <body>
     <h1>My Web Page</h1>
 
     <!-- 2. Use the custom element in your HTML -->
-    <my-element></my-element>
+    <{{ .componentName }}></{{ .componentName }}>
 
 </body>
 </html>
